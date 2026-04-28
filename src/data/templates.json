@@ -1,0 +1,420 @@
+{
+  "version": "2.0",
+  "company": {
+    "name": "Homevo",
+    "tagline": "Votre expert en rénovation énergétique",
+    "phone": "02 20 02 82 68",
+    "mobile": "06 22 73 55 42",
+    "email": "contact@homevo.fr",
+    "website": "https://homevo.fr",
+    "siret": "99293833200010",
+    "rge": {
+      "label": "RGE Qualipac",
+      "number": "QPAC/83891",
+      "validUntil": "13/12/2026"
+    },
+    "links": {
+      "pappers": "https://www.pappers.fr/entreprise/homevo-992938332",
+      "synerciel": "https://www.synerciel.fr/trouvez-un-pro/?view=artisan-details&id=001aT00000etPEuQAM"
+    },
+    "sender": {
+      "firstName": "Emeric",
+      "title": "Conseiller en rénovation énergétique"
+    }
+  },
+  "rules": {
+    "noTablesInBody": true,
+    "noAmountsInBody": true,
+    "subjectFormat": "{{civilite}} {{nom}}, {{shortSubject}}",
+    "boldKeyFigures": true
+  },
+  "globalVariables": [
+    { "key": "civilite", "label": "Civilité", "type": "select", "options": ["M.", "Mme"], "required": true, "always": true },
+    { "key": "nom", "label": "Nom", "type": "text", "required": true, "always": true },
+    { "key": "prenom", "label": "Prénom", "type": "text", "required": true, "always": true },
+    { "key": "mobile_contact", "label": "Votre mobile (l'expéditeur du mail)", "type": "text", "default": "Emeric · 06 22 73 55 42", "placeholder": "Emeric · 06 22 73 55 42", "help": "Numéro mobile que le destinataire pourra appeler pour vous joindre. Modifiable selon qui envoie le mail.", "always": true }
+  ],
+  "blocks": {
+    "greeting": {
+      "id": "greeting",
+      "label": "Salutation initiale",
+      "category": "intro",
+      "html": "<p>Bonjour {{civilite}} {{nom}},</p>",
+      "text": "Bonjour {{civilite}} {{nom}},\n",
+      "vars": ["civilite", "nom"],
+      "alwaysFirst": true
+    },
+    "A": {
+      "id": "A",
+      "label": "Intro relance téléphonique",
+      "category": "intro",
+      "summary": "Pour un appel manqué",
+      "html": "<p>Je suis Emeric d'Homevo, et j'ai tenté de vous joindre par téléphone aujourd'hui.</p><p><strong>Pourquoi je vous ai appelé ?</strong><br/>Vous avez manifesté un intérêt pour la rénovation énergétique de votre logement, et je souhaitais échanger avec vous sur les aides disponibles en 2026 et les économies concrètes que vous pourriez réaliser.</p>",
+      "text": "Je suis Emeric d'Homevo, et j'ai tenté de vous joindre par téléphone aujourd'hui.\n\nPourquoi je vous ai appelé ?\nVous avez manifesté un intérêt pour la rénovation énergétique de votre logement, et je souhaitais échanger avec vous sur les aides disponibles en 2026 et les économies concrètes que vous pourriez réaliser.",
+      "vars": [],
+      "keywords": ["appel", "téléphone", "tenté de joindre", "manqué", "rappel"]
+    },
+    "B": {
+      "id": "B",
+      "label": "Intro relance mail (formulaire)",
+      "category": "intro",
+      "summary": "Suite à un formulaire en ligne",
+      "html": "<p>Vous avez récemment effectué une demande d'information concernant la rénovation énergétique de votre logement, et je souhaitais y répondre personnellement.</p>",
+      "text": "Vous avez récemment effectué une demande d'information concernant la rénovation énergétique de votre logement, et je souhaitais y répondre personnellement.",
+      "vars": [],
+      "keywords": ["formulaire", "demande", "information", "site"]
+    },
+    "C": {
+      "id": "C",
+      "label": "Intro envoi devis standard",
+      "category": "intro-devis",
+      "summary": "Devis simple, comme convenu",
+      "html": "<p>Comme convenu, je vous transmets en pièce jointe votre devis pour l'installation de votre <strong>pompe à chaleur air/eau {{puissance_pac}} kW</strong>.</p>",
+      "text": "Comme convenu, je vous transmets en pièce jointe votre devis pour l'installation de votre pompe à chaleur air/eau {{puissance_pac}} kW.",
+      "vars": ["puissance_pac"],
+      "keywords": ["devis", "convenu", "transmets"]
+    },
+    "D": {
+      "id": "D",
+      "label": "Intro devis suite à visite technique",
+      "category": "intro-devis",
+      "summary": "Devis après visite réalisée",
+      "html": "<p>Suite à la visite technique réalisée chez vous par <strong>{{technicien}}</strong>, je vous transmets en pièce jointe votre devis pour l'installation d'une <strong>pompe à chaleur air/eau {{puissance_pac}} kW</strong>.</p>",
+      "text": "Suite à la visite technique réalisée chez vous par {{technicien}}, je vous transmets en pièce jointe votre devis pour l'installation d'une pompe à chaleur air/eau {{puissance_pac}} kW.",
+      "vars": ["technicien", "puissance_pac"],
+      "keywords": ["visite technique", "réalisée", "technicien"]
+    },
+    "E": {
+      "id": "E",
+      "label": "Contenu du devis (matériel + pose)",
+      "category": "devis",
+      "summary": "Liste : unités + ballon + pose",
+      "html": "<p>Ce devis comprend :</p><ul><li>L'unité extérieure</li><li>L'unité intérieure</li><li>Le ballon thermodynamique <strong>{{ballon}}</strong></li><li>La pose complète du matériel</li></ul><p>Le tout installé par nos techniciens certifiés <strong>RGE Qualipac</strong>.</p>",
+      "text": "Ce devis comprend :\n- L'unité extérieure\n- L'unité intérieure\n- Le ballon thermodynamique {{ballon}}\n- La pose complète du matériel\n\nLe tout installé par nos techniciens certifiés RGE Qualipac.",
+      "vars": ["ballon"],
+      "keywords": ["matériel", "ballon", "unité", "pose", "comprend"]
+    },
+    "F": {
+      "id": "F",
+      "label": "Aides financières (MPR + CEE)",
+      "category": "aides",
+      "summary": "Cas standard : éligible MPR + CEE",
+      "html": "<p>Homevo prend en charge <strong>100 % des démarches administratives</strong> pour maximiser les aides auxquelles vous avez droit (<strong>MaPrimeRénov' + Prime Énergie CEE</strong>), directement déduites du montant des travaux.</p>",
+      "text": "Homevo prend en charge 100 % des démarches administratives pour maximiser les aides auxquelles vous avez droit (MaPrimeRénov' + Prime Énergie CEE), directement déduites du montant des travaux.",
+      "vars": [],
+      "keywords": ["aides", "maprimerénov", "mpr", "cee", "démarches"]
+    },
+    "Fc": {
+      "id": "Fc",
+      "label": "Aides financières (CEE seul, non éligible MPR)",
+      "category": "aides",
+      "summary": "Prospect non éligible MaPrimeRénov'",
+      "html": "<p>Homevo prend en charge <strong>100 % des démarches administratives</strong> pour vous faire bénéficier de la <strong>Prime Énergie CEE</strong>, directement déduite du montant des travaux. Bien que vous ne soyez pas éligible à MaPrimeRénov', cette prime CEE permet déjà une réduction significative du coût de votre installation.</p>",
+      "text": "Homevo prend en charge 100 % des démarches administratives pour vous faire bénéficier de la Prime Énergie CEE, directement déduite du montant des travaux. Bien que vous ne soyez pas éligible à MaPrimeRénov', cette prime CEE permet déjà une réduction significative du coût de votre installation.",
+      "vars": [],
+      "keywords": ["aides", "cee", "cee seul", "non éligible mpr", "prime énergie", "locataire", "résidence secondaire"]
+    },
+    "G": {
+      "id": "G",
+      "label": "Aucune avance de frais",
+      "category": "aides",
+      "summary": "Rien à débourser en amont",
+      "html": "<p><strong>Aucune avance de frais de votre part</strong> : les aides sont directement déduites du montant des travaux, vous n'avez rien à débourser en amont.</p>",
+      "text": "Aucune avance de frais de votre part : les aides sont directement déduites du montant des travaux, vous n'avez rien à débourser en amont.",
+      "vars": [],
+      "keywords": ["avance", "frais", "débourser", "amont"]
+    },
+    "H": {
+      "id": "H",
+      "label": "PAC à 1 €",
+      "category": "aides",
+      "summary": "Reste à charge = 1 €",
+      "showIf": "rac == 1",
+      "html": "<p>Grâce au cumul des aides financières (<strong>MaPrimeRénov' + Prime Énergie CEE</strong>), <strong>votre reste à charge s'élève à 1 €</strong>.</p>",
+      "text": "Grâce au cumul des aides financières (MaPrimeRénov' + Prime Énergie CEE), votre reste à charge s'élève à 1 €.",
+      "vars": [],
+      "keywords": ["1€", "1 euro", "pac à 1", "reste à charge nul"]
+    },
+    "I": {
+      "id": "I",
+      "label": "Coup de pouce EDF (1 000 €)",
+      "category": "aides",
+      "summary": "Virement de 1 000 € après pose",
+      "html": "<p>Une fois vos travaux réalisés, vous pourrez faire une demande directement auprès d'<strong>EDF</strong> pour recevoir un virement de <strong>1 000 €</strong> sur votre compte bancaire personnel. Nous vous fournirons le lien pour effectuer cette démarche en temps voulu.</p>",
+      "text": "Une fois vos travaux réalisés, vous pourrez faire une demande directement auprès d'EDF pour recevoir un virement de 1 000 € sur votre compte bancaire personnel. Nous vous fournirons le lien pour effectuer cette démarche en temps voulu.",
+      "vars": [],
+      "keywords": ["edf", "coup de pouce", "1000", "virement"]
+    },
+    "J": {
+      "id": "J",
+      "label": "Parrainage (diminution du RAC)",
+      "category": "aides",
+      "summary": "Réduit le reste à charge",
+      "showIf": "rac > 0",
+      "html": "<p><strong>Faites encore baisser votre reste à charge grâce au parrainage</strong></p><p>Si un proche — voisin, ami ou membre de votre famille — décide à son tour de faire installer une pompe à chaleur via Homevo, votre reste à charge diminue automatiquement. Chaque parrainage signé est une économie supplémentaire pour vous, sans aucune démarche complexe.</p>",
+      "text": "Faites encore baisser votre reste à charge grâce au parrainage\n\nSi un proche — voisin, ami ou membre de votre famille — décide à son tour de faire installer une pompe à chaleur via Homevo, votre reste à charge diminue automatiquement. Chaque parrainage signé est une économie supplémentaire pour vous, sans aucune démarche complexe.",
+      "vars": [],
+      "keywords": ["parrainage", "parrain", "proche", "famille", "voisin"]
+    },
+    "K": {
+      "id": "K",
+      "label": "Urgence / agir vite",
+      "category": "argumentaire",
+      "summary": "Aides actuelles → ne pas tarder",
+      "html": "<p>Les montants des aides actuelles sont à un niveau quasi historique, et il est <strong>fortement conseillé de ne pas trop tarder</strong> pour en bénéficier pleinement.</p><ul><li>La <strong>Prime Énergie CEE</strong> atteint aujourd'hui des montants exceptionnellement élevés. Ces niveaux sont amenés à évoluer à la baisse.</li><li>Le <strong>Coup de Pouce EDF</strong> (virement de 1 000 € après installation) fonctionne sur un nombre de dossiers limité et défini à l'avance. Une fois ce quota atteint, le dispositif prend fin, sans préavis.</li></ul>",
+      "text": "Les montants des aides actuelles sont à un niveau quasi historique, et il est fortement conseillé de ne pas trop tarder pour en bénéficier pleinement.\n\n- La Prime Énergie CEE atteint aujourd'hui des montants exceptionnellement élevés. Ces niveaux sont amenés à évoluer à la baisse.\n- Le Coup de Pouce EDF (virement de 1 000 € après installation) fonctionne sur un nombre de dossiers limité et défini à l'avance. Une fois ce quota atteint, le dispositif prend fin, sans préavis.",
+      "vars": [],
+      "keywords": ["urgence", "tarder", "vite", "historique", "quota"]
+    },
+    "L": {
+      "id": "L",
+      "label": "Lancement administratif après signature",
+      "category": "process",
+      "summary": "Procédures lancées dès signature",
+      "html": "<p>Une fois le devis signé, <strong>nous lançons immédiatement les procédures administratives</strong> de notre côté afin de traiter votre dossier dans les meilleurs délais.</p>",
+      "text": "Une fois le devis signé, nous lançons immédiatement les procédures administratives de notre côté afin de traiter votre dossier dans les meilleurs délais.",
+      "vars": [],
+      "keywords": ["signature", "procédure", "lancement", "administratif"]
+    },
+    "M": {
+      "id": "M",
+      "label": "Visite technique obligatoire",
+      "category": "process",
+      "summary": "Audit avant travaux",
+      "html": "<p>Pour rappel, <strong>une visite technique est obligatoire</strong> avant tout début de travaux. Elle nous permet de réaliser un audit complet de votre bâti afin de dimensionner précisément la pompe à chaleur à votre logement. Un mauvais dimensionnement entraînerait une surconsommation électrique ou une usure prématurée des pièces.</p>",
+      "text": "Pour rappel, une visite technique est obligatoire avant tout début de travaux. Elle nous permet de réaliser un audit complet de votre bâti afin de dimensionner précisément la pompe à chaleur à votre logement. Un mauvais dimensionnement entraînerait une surconsommation électrique ou une usure prématurée des pièces.",
+      "vars": [],
+      "keywords": ["visite technique", "audit", "dimensionnement", "obligatoire"]
+    },
+    "N": {
+      "id": "N",
+      "label": "Installation rapide / sans contraintes",
+      "category": "argumentaire",
+      "summary": "1 à 1,5 jour, sans gros travaux",
+      "html": "<p>Nos travaux se réalisent en <strong>1 à 1,5 jour</strong> selon la complexité du bâti, sans gros travaux et sans perturber vos habitudes de vie. Nous intervenons sur votre système de chauffage existant <strong>sans démolition ni modification lourde</strong> de votre logement.</p>",
+      "text": "Nos travaux se réalisent en 1 à 1,5 jour selon la complexité du bâti, sans gros travaux et sans perturber vos habitudes de vie. Nous intervenons sur votre système de chauffage existant sans démolition ni modification lourde de votre logement.",
+      "vars": [],
+      "keywords": ["installation", "rapide", "jour", "démolition"]
+    },
+    "O": {
+      "id": "O",
+      "label": "Avantages PAC vs chaudière gaz",
+      "category": "argumentaire",
+      "summary": "Économies, écologie, confort, DPE",
+      "html": "<p>Par rapport à une chaudière gaz, la pompe à chaleur offre des avantages considérables :</p><ul><li><strong>40 à 60 % de réduction</strong> sur vos dépenses de chauffage dès la première année</li><li><strong>Énergie propre et renouvelable</strong> : la PAC puise les calories dans l'air extérieur, sans combustion ni émission de CO₂</li><li><strong>Indépendance des prix du gaz</strong> : vous n'êtes plus soumis aux fluctuations du marché des énergies fossiles</li><li><strong>Confort amélioré</strong> : chaleur douce et régulière, pilotage intelligent via régulateur de classe IV</li><li><strong>Valorisation de votre bien</strong> : une installation performante améliore le DPE de votre logement</li></ul>",
+      "text": "Par rapport à une chaudière gaz, la pompe à chaleur offre des avantages considérables :\n- 40 à 60 % de réduction sur vos dépenses de chauffage dès la première année\n- Énergie propre et renouvelable : la PAC puise les calories dans l'air extérieur, sans combustion ni émission de CO₂\n- Indépendance des prix du gaz : vous n'êtes plus soumis aux fluctuations du marché des énergies fossiles\n- Confort amélioré : chaleur douce et régulière, pilotage intelligent via régulateur de classe IV\n- Valorisation de votre bien : une installation performante améliore le DPE de votre logement",
+      "vars": [],
+      "keywords": ["chaudière gaz", "économies", "co2", "dpe", "confort", "valorisation"]
+    },
+    "P": {
+      "id": "P",
+      "label": "Matériel silencieux / haut de gamme",
+      "category": "argumentaire",
+      "summary": "Niveau sonore détaillé",
+      "html": "<p>La pompe à chaleur que nous vous proposons est un produit <strong>haut de gamme de très grande qualité</strong>. Son niveau sonore est compris entre <strong>{{db_min}} et {{db_max}} dB</strong>, ce qui en fait une installation extrêmement silencieuse.</p>",
+      "text": "La pompe à chaleur que nous vous proposons est un produit haut de gamme de très grande qualité. Son niveau sonore est compris entre {{db_min}} et {{db_max}} dB, ce qui en fait une installation extrêmement silencieuse.",
+      "vars": ["db_min", "db_max"],
+      "keywords": ["silencieux", "db", "décibels", "bruit", "haut de gamme"]
+    },
+    "Q": {
+      "id": "Q",
+      "label": "Suivi d'entretien",
+      "category": "process",
+      "summary": "Performances long terme",
+      "html": "<p>Nous proposons également un <strong>suivi d'entretien</strong> de vos installations pour garantir leurs performances sur le long terme.</p>",
+      "text": "Nous proposons également un suivi d'entretien de vos installations pour garantir leurs performances sur le long terme.",
+      "vars": [],
+      "keywords": ["entretien", "suivi", "maintenance", "performance"]
+    },
+    "R": {
+      "id": "R",
+      "label": "Disponibilité à chaque étape",
+      "category": "outro",
+      "summary": "Accompagnement de bout en bout",
+      "html": "<p>Nous restons disponibles à chaque étape pour répondre à toutes vos questions et vous accompagner tout au long du projet.</p>",
+      "text": "Nous restons disponibles à chaque étape pour répondre à toutes vos questions et vous accompagner tout au long du projet.",
+      "vars": [],
+      "keywords": ["disponible", "questions", "accompagner", "étape"]
+    },
+    "S": {
+      "id": "S",
+      "label": "Documents entreprise (liste PJ)",
+      "category": "trust",
+      "summary": "Mention RGE + assurance + KBIS + EDF en PJ",
+      "html": "<p>Vous trouverez en pièces jointes :</p><ul><li>Notre certificat <strong>RGE Qualipac</strong></li><li>Notre <strong>attestation d'assurance décennale</strong></li><li>Notre <strong>Kbis</strong></li></ul>",
+      "text": "Vous trouverez en pièces jointes :\n- Notre certificat RGE Qualipac\n- Notre attestation d'assurance décennale\n- Notre Kbis",
+      "vars": [],
+      "keywords": ["rge", "kbis", "assurance", "décennale", "documents"]
+    },
+    "Sp": {
+      "id": "Sp",
+      "label": "Lien Pappers (vérification entreprise)",
+      "category": "trust",
+      "summary": "Lien direct vers la fiche Pappers Homevo",
+      "html": "<p>Pour vérifier en toute transparence l'ensemble des informations de notre entreprise (immatriculation, dirigeants, statuts), vous pouvez consulter notre fiche officielle Pappers :<br/>🔗 <a href=\"https://www.pappers.fr/entreprise/homevo-992938332\">https://www.pappers.fr/entreprise/homevo-992938332</a></p>",
+      "text": "Pour vérifier en toute transparence l'ensemble des informations de notre entreprise (immatriculation, dirigeants, statuts), vous pouvez consulter notre fiche officielle Pappers :\nhttps://www.pappers.fr/entreprise/homevo-992938332",
+      "vars": [],
+      "keywords": ["pappers", "vérification", "transparence", "fiche entreprise", "siret"]
+    },
+    "T": {
+      "id": "T",
+      "label": "Lien Synerciel (partenaire CEE)",
+      "category": "trust",
+      "summary": "Vérification partenaire CEE",
+      "html": "<p>Pour vérifier notre profil partenaire <strong>Synerciel</strong> (organisme CEE agréé) :<br/>🔗 <a href=\"https://www.synerciel.fr/trouvez-un-pro/?view=artisan-details&id=001aT00000etPEuQAM\">https://www.synerciel.fr/trouvez-un-pro/?view=artisan-details&id=001aT00000etPEuQAM</a></p>",
+      "text": "Pour vérifier notre profil partenaire Synerciel (organisme CEE agréé) :\nhttps://www.synerciel.fr/trouvez-un-pro/?view=artisan-details&id=001aT00000etPEuQAM",
+      "vars": [],
+      "keywords": ["synerciel", "partenaire", "cee agréé"]
+    },
+    "U": {
+      "id": "U",
+      "label": "Logement en location (CEE locataire)",
+      "category": "specifique",
+      "summary": "CEE jusqu'à 5 454 € selon revenus locataire",
+      "showIf": "logement_location == true",
+      "html": "<p>Concernant le logement en location, la <strong>prime CEE peut atteindre jusqu'à 5 454 €</strong> selon les revenus de votre locataire, ce qui ferait considérablement baisser votre reste à charge. Pour optimiser ce dossier, il nous faudra <strong>l'avis d'imposition de votre locataire</strong>.</p>",
+      "text": "Concernant le logement en location, la prime CEE peut atteindre jusqu'à 5 454 € selon les revenus de votre locataire, ce qui ferait considérablement baisser votre reste à charge. Pour optimiser ce dossier, il nous faudra l'avis d'imposition de votre locataire.",
+      "vars": [],
+      "keywords": ["location", "locataire", "5454", "avis d'imposition", "bailleur"]
+    },
+    "V": {
+      "id": "V",
+      "label": "Double devis (comparatif 2 modèles)",
+      "category": "specifique",
+      "summary": "Comparatif 2 marques / 2 puissances",
+      "html": "<p>Ces deux propositions vous permettront de comparer les modèles et de choisir celui qui correspond le mieux à vos attentes.</p><ul><li><strong>Devis n°1</strong> — PAC <strong>{{marque1}}</strong> {{puissance1}} kW</li><li><strong>Devis n°2</strong> — PAC <strong>{{marque2}}</strong> {{puissance2}} kW</li></ul>",
+      "text": "Ces deux propositions vous permettront de comparer les modèles et de choisir celui qui correspond le mieux à vos attentes.\n- Devis n°1 — PAC {{marque1}} {{puissance1}} kW\n- Devis n°2 — PAC {{marque2}} {{puissance2}} kW",
+      "vars": ["marque1", "puissance1", "marque2", "puissance2"],
+      "keywords": ["double", "comparatif", "deux", "modèles", "comparer"]
+    },
+    "PJ": {
+      "id": "PJ",
+      "label": "Mention pièces jointes (avec liste auto)",
+      "category": "outro",
+      "summary": "Annonce les PJ + liste cochée en zone 3",
+      "html": "<p>Vous trouverez en pièces jointes tous les documents.</p>{{attachments_list_html}}",
+      "text": "Vous trouverez en pièces jointes tous les documents.\n\n{{attachments_list_text}}",
+      "vars": [],
+      "keywords": ["pièces jointes", "pj", "documents", "joint", "ci-joint"]
+    },
+    "W": {
+      "id": "W",
+      "label": "Signature / contact (toujours en fin)",
+      "category": "outro",
+      "summary": "Coordonnées + signature",
+      "html": "<p>Je reste disponible pour toute question.</p><p><strong>Téléphone :</strong> 02 20 02 82 68<br/><strong>Mobile :</strong> {{mobile_contact}} (appel ou SMS)<br/><strong>E-mail :</strong> contact@homevo.fr</p><p>À très bientôt,<br/><strong>Emeric</strong>, Conseiller en rénovation énergétique</p>",
+      "text": "Je reste disponible pour toute question.\n\nTéléphone : 02 20 02 82 68\nMobile : {{mobile_contact}} (appel ou SMS)\nE-mail : contact@homevo.fr\n\nÀ très bientôt,\nEmeric, Conseiller en rénovation énergétique",
+      "vars": ["mobile_contact"],
+      "alwaysLast": true
+    }
+  },
+  "blockVariables": {
+    "puissance_pac": { "key": "puissance_pac", "label": "Puissance PAC (kW)", "type": "number", "placeholder": "11" },
+    "ballon": { "key": "ballon", "label": "Ballon thermodynamique", "type": "select", "options": ["200L", "250L", "intégré", "aucun"] },
+    "technicien": { "key": "technicien", "label": "Technicien (visite)", "type": "text", "placeholder": "Pierre" },
+    "rac": { "key": "rac", "label": "Reste à charge (€)", "type": "money", "placeholder": "1500", "drives": ["H", "J"] },
+    "db_min": { "key": "db_min", "label": "Niveau sonore min (dB)", "type": "number", "placeholder": "30" },
+    "db_max": { "key": "db_max", "label": "Niveau sonore max (dB)", "type": "number", "placeholder": "32" },
+    "logement_location": { "key": "logement_location", "label": "Logement en location ?", "type": "boolean", "drives": ["U"] },
+    "marque1": { "key": "marque1", "label": "Marque devis 1", "type": "text", "placeholder": "Daikin" },
+    "puissance1": { "key": "puissance1", "label": "Puissance devis 1 (kW)", "type": "number", "placeholder": "8" },
+    "marque2": { "key": "marque2", "label": "Marque devis 2", "type": "text", "placeholder": "Ariston" },
+    "puissance2": { "key": "puissance2", "label": "Puissance devis 2 (kW)", "type": "number", "placeholder": "11" }
+  },
+  "types": [
+    {
+      "id": "relance-tel",
+      "label": "Relance téléphonique (appel manqué)",
+      "icon": "📞",
+      "shortSubject": "nous avons essayé de vous joindre — jusqu'à 14 324 € d'aides",
+      "defaultBlocks": ["greeting", "A", "F", "K", "R", "W"],
+      "applicableBlocks": ["A", "F", "Fc", "G", "H", "I", "J", "K", "N", "O", "R", "W"]
+    },
+    {
+      "id": "relance-mail",
+      "label": "Relance mail (suite à formulaire)",
+      "icon": "✉️",
+      "shortSubject": "jusqu'à 14 324 € d'aides pour votre pompe à chaleur en 2026",
+      "defaultBlocks": ["greeting", "B", "F", "G", "K", "O", "R", "W"],
+      "applicableBlocks": ["B", "F", "Fc", "G", "H", "I", "J", "K", "N", "O", "P", "R", "W"]
+    },
+    {
+      "id": "envoi-devis-simple",
+      "label": "Envoi de devis simple (1 devis)",
+      "icon": "📄",
+      "shortSubject": "votre devis pompe à chaleur",
+      "defaultBlocks": ["greeting", "D", "E", "F", "G", "L", "PJ", "R", "W"],
+      "applicableBlocks": ["D", "C", "E", "F", "Fc", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "U", "PJ", "W"]
+    },
+    {
+      "id": "envoi-double-devis",
+      "label": "Envoi de double devis (2 modèles à comparer)",
+      "icon": "📄📄",
+      "shortSubject": "vos deux devis pompe à chaleur",
+      "defaultBlocks": ["greeting", "D", "V", "F", "G", "L", "PJ", "R", "W"],
+      "applicableBlocks": ["D", "C", "V", "E", "F", "Fc", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "U", "PJ", "W"]
+    },
+    {
+      "id": "envoi-devis-multi-logements",
+      "label": "Envoi de devis multi-logements",
+      "icon": "🏠🏠",
+      "shortSubject": "vos devis pompes à chaleur (résidence + location)",
+      "defaultBlocks": ["greeting", "D", "F", "U", "L", "PJ", "R", "W"],
+      "applicableBlocks": ["D", "C", "E", "F", "Fc", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "U", "V", "PJ", "W"]
+    },
+    {
+      "id": "documents-entreprise",
+      "label": "Envoi de documents entreprise",
+      "icon": "🏢",
+      "shortSubject": "documents Homevo (RGE, assurance, Kbis)",
+      "defaultBlocks": ["greeting", "S", "Sp", "T", "PJ", "R", "W"],
+      "applicableBlocks": ["S", "Sp", "T", "F", "PJ", "R", "W"]
+    },
+    {
+      "id": "info-complete",
+      "label": "Mail d'information complet",
+      "icon": "💡",
+      "shortSubject": "tout savoir sur Homevo et vos aides 2026",
+      "defaultBlocks": ["greeting", "B", "F", "G", "O", "N", "K", "R", "W"],
+      "applicableBlocks": ["A", "B", "F", "Fc", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "Sp", "T", "U", "PJ", "W"]
+    },
+    {
+      "id": "correction",
+      "label": "Mail de correction",
+      "icon": "✏️",
+      "shortSubject": "rectification d'information",
+      "defaultBlocks": ["greeting", "R", "W"],
+      "applicableBlocks": ["F", "R", "W"],
+      "freeTextBlock": true
+    },
+    {
+      "id": "excuse-annulation",
+      "label": "Mail d'excuse / annulation de devis",
+      "icon": "🙏",
+      "shortSubject": "annulation de devis envoyés par erreur",
+      "defaultBlocks": ["greeting", "R", "W"],
+      "applicableBlocks": ["R", "W"],
+      "freeTextBlock": true
+    },
+    {
+      "id": "validation-signature",
+      "label": "Validation de signature (par téléphone)",
+      "icon": "✍️",
+      "shortSubject": "validation de signature de votre devis",
+      "defaultBlocks": ["greeting", "L", "R", "W"],
+      "applicableBlocks": ["L", "M", "R", "W"],
+      "freeTextBlock": true
+    }
+  ],
+  "attachments": {
+    "presets": [
+      { "id": "devis-1", "label": "Devis n°1", "category": "devis", "file": null, "note": "À fournir manuellement (généré au cas par cas)" },
+      { "id": "devis-2", "label": "Devis n°2", "category": "devis", "file": null, "note": "À fournir manuellement (généré au cas par cas)" },
+      { "id": "rge-qualipac", "label": "Certificat RGE Qualipac", "category": "entreprise", "file": "/attachments/rge-qualipac.pdf" },
+      { "id": "assurance", "label": "Attestation assurance décennale", "category": "entreprise", "file": "/attachments/assurance-decennale.pdf" },
+      { "id": "kbis", "label": "Kbis", "category": "entreprise", "file": "/attachments/kbis.pdf" },
+      { "id": "contrat-maintenance", "label": "Contrat d'abonnement entretien PAC Air/Eau", "category": "service", "file": "/attachments/contrat-maintenance.pdf" },
+      { "id": "facture", "label": "Facture finale", "category": "facturation", "file": null, "note": "À fournir manuellement" }
+    ]
+  }
+}
