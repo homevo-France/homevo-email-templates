@@ -238,13 +238,13 @@
     },
     "S": {
       "id": "S",
-      "label": "Documents entreprise (liste PJ)",
+      "label": "Documents entreprise (liste PJ + lien EDF)",
       "category": "trust",
-      "summary": "Mention RGE + assurance + KBIS + EDF en PJ",
-      "html": "<p>Vous trouverez en pièces jointes :</p><ul><li>Notre certificat <strong>RGE Qualipac</strong></li><li>Notre <strong>attestation d'assurance décennale</strong></li><li>Notre <strong>Kbis</strong></li></ul>",
-      "text": "Vous trouverez en pièces jointes :\n- Notre certificat RGE Qualipac\n- Notre attestation d'assurance décennale\n- Notre Kbis",
+      "summary": "RGE + assurance + KBIS en PJ + lien partenaire EDF",
+      "html": "<p>Vous trouverez en pièces jointes :</p><ul><li>Notre certificat <strong>RGE Qualipac</strong></li><li>Notre <strong>attestation d'assurance décennale</strong></li><li>Notre <strong>Kbis</strong></li></ul><p>Vous pouvez également vérifier notre statut de <strong>partenaire EDF</strong> officiel :<br/>🔗 <a href=\"https://particulier.edf.fr/fr/accueil/aides-financement/professionnels/partenaire.html?idPartenaire=229162\">https://particulier.edf.fr/fr/accueil/aides-financement/professionnels/partenaire.html?idPartenaire=229162</a></p>",
+      "text": "Vous trouverez en pièces jointes :\n- Notre certificat RGE Qualipac\n- Notre attestation d'assurance décennale\n- Notre Kbis\n\nVous pouvez également vérifier notre statut de partenaire EDF officiel :\nhttps://particulier.edf.fr/fr/accueil/aides-financement/professionnels/partenaire.html?idPartenaire=229162",
       "vars": [],
-      "keywords": ["rge", "kbis", "assurance", "décennale", "documents"]
+      "keywords": ["rge", "kbis", "assurance", "décennale", "edf", "partenaire", "documents"]
     },
     "Sp": {
       "id": "Sp",
@@ -413,6 +413,7 @@
       { "id": "rge-qualipac", "label": "Certificat RGE Qualipac", "category": "entreprise", "file": "/attachments/rge-qualipac.pdf" },
       { "id": "assurance", "label": "Attestation assurance décennale", "category": "entreprise", "file": "/attachments/assurance-decennale.pdf" },
       { "id": "kbis", "label": "Kbis", "category": "entreprise", "file": "/attachments/kbis.pdf" },
+      { "id": "partenaire-edf", "label": "Partenaire EDF", "category": "entreprise", "link": "https://particulier.edf.fr/fr/accueil/aides-financement/professionnels/partenaire.html?idPartenaire=229162", "note": "Lien web inclus dans la liste PJ du mail" },
       { "id": "contrat-maintenance", "label": "Contrat d'abonnement entretien PAC Air/Eau", "category": "service", "file": "/attachments/contrat-maintenance.pdf" },
       { "id": "facture", "label": "Facture finale", "category": "facturation", "file": null, "note": "À fournir manuellement" }
     ]
