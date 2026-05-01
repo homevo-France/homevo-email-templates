@@ -409,7 +409,9 @@
   "attachments": {
     "presets": [
       { "id": "devis-1", "label": "Devis n°1", "category": "devis", "file": null, "note": "À fournir manuellement (généré au cas par cas)" },
+      { "id": "note-dim-1", "label": "Note de dimensionnement PAC n°1", "category": "devis", "file": null, "note": "À uploader (généré pour chaque devis)" },
       { "id": "devis-2", "label": "Devis n°2", "category": "devis", "file": null, "note": "À fournir manuellement (généré au cas par cas)" },
+      { "id": "note-dim-2", "label": "Note de dimensionnement PAC n°2", "category": "devis", "file": null, "note": "À uploader (uniquement si 2 devis)" },
       { "id": "rge-qualipac", "label": "Certificat RGE Qualipac", "category": "entreprise", "file": "/attachments/rge-qualipac.pdf" },
       { "id": "assurance", "label": "Attestation assurance décennale", "category": "entreprise", "file": "/attachments/assurance-decennale.pdf" },
       { "id": "kbis", "label": "Kbis", "category": "entreprise", "file": "/attachments/kbis.pdf" },
